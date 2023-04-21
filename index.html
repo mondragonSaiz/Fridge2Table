@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=EB+Garamond&family=Quicksand&family=Righteous&family=Special+Elite&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="assets/css/style.css" />
+    <title>Document</title>
+  </head>
+  <body flex-column min-100-vh>
+    <header>
+      <nav>
+        <img
+          class="img-logo"
+          src="assets/images/restaurant (1).png"
+          alt="main logo"
+        />
+        <h1>Fridge2Table</h1>
+        <img
+          class="extra-logo"
+          src="assets/images/hamburger.png"
+          alt="hamburger image"
+        />
+      </nav>
+    </header>
+    <main>
+      <div class="row justify-content-between page-wrapper">
+        <div class="col-md-4 card user-form">
+          <p class="card-title display-6">Let's find some recipes!</p>
+          <form>
+            <div class="mb-3">
+              <label for="InputIngredients" class="form-label"
+                >Ingredients</label
+              >
+              <input
+                type="text"
+                class="form-control"
+                id="InputIngredients"
+                aria-describedby="ingredeientsHelp"
+                placeholder="Search recipes by ingredients..."
+              />
+              <div id="ingredeientsHelp" class="form-text">
+                Insert your available resources.
+              </div>
+            </div>
+            <label for="cuisinesHelp" class="form-label">Cuisine</label>
+            <select class="form-select" aria-label="Default select example">
+              <option selected>----</option>
+              <option value="African">African</option>
+              <option value="American">American</option>
+              <option value="British">British</option>
+              <option value="Cajun">Cajun</option>
+              <option value="Caribbean">Caribbean</option>
+              <option value="Chinese">Chinese</option>
+              <option value="Eastern European">Eastern European</option>
+              <option value="European">European</option>
+              <option value="French">French</option>
+              <option value="German">German</option>
+              <option value="Greek">Greek</option>
+              <option value="Indian">Indian</option>
+              <option value="Irish">Irish</option>
+              <option value="Italian">Italian</option>
+              <option value="Japanese">Japanese</option>
+              <option value="Jewish">Jewish</option>
+              <option value="Korean">Korean</option>
+              <option value="Latin American">Latin American</option>
+              <option value="Mediterranean">Mediterranean</option>
+              <option value="Mexican">Mexican</option>
+              <option value="Middle Eastern">Middle Eastern</option>
+              <option value="Nordic">Nordic</option>
+              <option value="Southern">Southern</option>
+              <option value="Spanish">Spanish</option>
+              <option value="Thai">Thai</option>
+              <option value="Vietnamese">Vietnamese</option>
+            </select>
+            <div id="cuisinesHelp" class="form-text">
+              What type of cuisine you are looking for.
+            </div>
+            <label for="mealHelp" class="form-label">Meal Type</label>
+            <select class="form-select" aria-label="Default select example">
+              <option selected>----</option>
+              <option value="main course">main course</option>
+              <option value="side dish">side dish</option>
+              <option value="dessert">dessert</option>
+              <option value="appetizer">appetizer</option>
+              <option value="salad">salad</option>
+              <option value="bread">bread</option>
+              <option value="breakfast">breakfast</option>
+              <option value="soup">soup</option>
+              <option value="beverage">beverage</option>
+              <option value="sauce">sauce</option>
+              <option value="marinade">marinade</option>
+              <option value="fingerfood">fingerfood</option>
+              <option value="snack">snack</option>
+              <option value="drink">drink</option>
+            </select>
+            <div id="mealHelp" class="form-text">
+              Select the type of meal for your recipe.
+            </div>
+            <label for="numberHelp" class="form-label">N° of recipes</label>
+            <select class="form-select" aria-label="Default select example">
+              <option selected>----</option>
+              <option value="1">1</option>
+              <option value="2">2</option>
+              <option value="3">3</option>
+              <option value="4">4</option>
+              <option value="5">5</option>
+              <option value="6">6</option>
+              <option value="7">7</option>
+              <option value="8">8</option>
+              <option value="9">9</option>
+              <option value="10">10</option>
+            </select>
+            <div id="numberHelp" class="form-text">
+              How many recipes do you want?
+            </div>
+            <button type="submit" class="btn btn-dark">Search</button>
+          </form>
+        </div>
+        <div class="col-md-6"><p class="display-6">Trends</p></div>
+      </div>
+    </main>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe"
+      crossorigin="anonymous"
+    ></script>
+    <script src="assets/js/script.js"></script>
+  </body>
+</html>
