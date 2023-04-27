@@ -6,7 +6,7 @@ var submitBoton = document.querySelector("#submit-btn");
 var formEL = document.querySelector("form");
 
 var mainRcontiner = document.querySelector("#main-recipe-container");
-const apiKEY = "930f918afd26488d8f51336d71c5b45d";
+// const apiKEY = "930f918afd26488d8f51336d71c5b45d"; 
 
 var submitInfo = function (event) {
   event.preventDefault();
@@ -16,21 +16,24 @@ var submitInfo = function (event) {
     console.log("Invalid input");
     return;
   }
+  var numberofrecipes = document.getElementById("number-recipes").value
   console.log("Hola");
   console.log(ingredients);
-  requestRecipe(ingredients);
+  requestRecipe(ingredients,numberofrecipes);
 };
 
-var requestRecipe = function (ingredients) {
+var requestRecipe = function (ingredients,numberofrecipes) {
   var requestURL =
     "https://api.spoonacular.com/recipes/findByIngredients?apiKey=" +
     apiKEY +
     "&ingredients=" +
-    ingredients;
-
+    ingredients+"&number="+numberofrecipes;
+console.log(requestURL)
   fetch(requestURL)
     .then((Response) => Response.json())
-    .then((data) => renderRecipes(data));
+    .then((data) => {
+        console.log (data)
+        renderRecipes(data)});
 };
 
 var renderRecipes = function (data) {
@@ -59,7 +62,7 @@ var renderRecipes = function (data) {
     var imgDiv = document.createElement("div");
     imgDiv.classList.add("col-md-4");
     var img = document.createElement("img");
-    img.setAttribute("src", "assets/images/applestrudel.jpeg");
+    img.setAttribute("src", data[i].image);
     img.classList.add("img-fluid", "rounded-start");
     imgDiv.append(img);
 
