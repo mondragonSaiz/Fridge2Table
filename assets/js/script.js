@@ -6,10 +6,12 @@ var submitBoton = document.querySelector("#submit-btn");
 var formEL = document.querySelector("form");
 var secu = 25;
 var mainRcontiner = document.querySelector("#main-recipe-container");
-const apiKEY = "dda6aa93032448f584c1421d3ebf826c";
+const apiKEY = "930f918afd26488d8f51336d71c5b45d";
 
 var submitInfo = function (event) {
   event.preventDefault();
+  var recipeCONT = document.querySelector("recipe-home");
+  //recipeCONT.remove();
   console.log("HOLAA");
   var ingredients = ingredientsInput.value.trim();
   if (ingredients === "") {
@@ -18,27 +20,44 @@ var submitInfo = function (event) {
   }
 
   //console.log(ingredients);
-  dividirIngredientes(ingredients);
+  requestRecipe(ingredients);
 };
 
-var requestRecipe = function (ingredientsArray) {
-  var actualING = "";
-  //console.log("INGREDIENTSSS", ingredientsArray);
-  for (var i = 0; i < ingredientsArray.length; i++) {
-    //console.log("INGREDIENTZZZ", ingredientsArray[i]);
+// function dividirIngredientes(ingredients) {
+//   var ingredientsArray = ingredients.split(" ");
+//   if (ingredientsArray.length === 1) {
+//     ingredientsArray = ingredients;
+//   } else {
+//     for (var i = 0; i < ingredientsArray.length; i++) {
+//       if (i == ingredientsArray.length - 1) {
+//         ingredientsArray[i] += "";
+//       } else {
+//         ingredientsArray[i] + ",+";
+//       }
+//     }
+//   }
+//   console.log("ZZZ", ingredientsArray);
+//   requestRecipe(ingredientsArray);
+// }
 
-    if (i !== ingredientsArray.length - 1) {
-      actualING += ingredientsArray[i] + ",+";
-    } else {
-      actualING += ingredientsArray[i];
-    }
-  }
-  console.log("ACTUAL ING", actualING);
+var requestRecipe = function (ingredientsArray) {
+  // var actualING = "";
+  // //console.log("INGREDIENTSSS", ingredientsArray);
+  // for (var i = 0; i < ingredientsArray.length; i++) {
+  //   //console.log("INGREDIENTZZZ", ingredientsArray[i]);
+
+  //   if (i !== ingredientsArray.length - 1) {
+  //     actualING += ingredientsArray[i] + ",+";
+  //   } else {
+  //     actualING += ingredientsArray[i];
+  //   }
+  // }
+  //console.log("ACTUAL ING", actualING);
   var requestURL =
     "https://api.spoonacular.com/recipes/findByIngredients?apiKey=" +
     apiKEY +
     "&ingredients=" +
-    actualING;
+    ingredientsArray;
 
   fetch(requestURL)
     .then((Response) => Response.json())
@@ -58,25 +77,26 @@ var renderOnLoad = function (randomData) {
   //console.log("Recipe title :", randomData.recipes[0].title);
   console.log("LOCAL STORAGE", localStorage.getItem("hiddenC"));
 
+  var recipeContainer = document.createElement("div");
+  recipeContainer.classList.add("randomRecipe");
+  recipeContainer.style.maxWidth = "740px";
+
   for (var i = 0; i < randomData.recipes.length; i++) {
     var recipeName = randomData.recipes[i].title;
     var recipeID = randomData.recipes[i].id;
+    var randomRecipeCard = document.createElement("div");
+    randomRecipeCard.classList.add(
+      "card",
+      "text-bg-dark",
+      "p-3",
+      "border-light-subtle",
+      "mb-3"
+    );
     assignRecipeTitleID(recipeID);
     var randomRecipeImgageSrc = randomData.recipes[i].image;
     //console.log("RECIPE TITLE", recipeName);
     var ingredients = randomData.recipes[i].extendedIngredients;
     //console.log("MISSED INGREDIENTS :", ingredients);
-
-    var recipeContainer = document.createElement("div");
-    recipeContainer.classList.add(
-      "card",
-      "text-bg-dark",
-      "p-3",
-      "border-light-subtle",
-      "mb-3",
-      "randomRecipe"
-    );
-    recipeContainer.style.maxWidth = "740px";
 
     var rowDiv = document.createElement("div");
     rowDiv.classList.add("row", "g-0");
@@ -129,43 +149,28 @@ var renderOnLoad = function (randomData) {
 
     rowDiv.append(imgDiv);
     rowDiv.append(bodyContainer);
-    recipeContainer.append(rowDiv);
+    randomRecipeCard.append(rowDiv);
+    recipeContainer.append(randomRecipeCard);
     mainRcontiner.append(recipeContainer);
   }
+  console.log("RECIPE CONTAINER", recipeContainer);
 };
 
 requestRandomRecipe();
 
-function dividirIngredientes(ingredients) {
-  var ingredientsArray = ingredients.split(" ");
-  if (ingredientsArray.length === 1) {
-    ingredientsArray = ingredients;
-  }
-  // } else {
-  //   for (var i = 0; i < ingredientsArray.length; i++) {
-  //     if (i == ingredientsArray.length - 1) {
-  //       ingredientsArray[i] += "";
-  //     } else {
-  //       ingredientsArray[i] + ",+";
-  //     }
-  //   }
-  // }
-  //console.log("ZZZ", ingredientsArray);
-  requestRecipe(ingredientsArray);
-}
-
 var renderRecipes = function (data, ingredients) {
-  localStorage.setItem("hiddenC", "hidden");
-  console.log("DDDTA", data);
+  //localStorage.setItem("hiddenC", "hidden");
+  //console.log("DDDTA", data);
   var recipeTrendContainer = document.querySelector(".randomRecipe");
-  console.log(recipeTrendContainer);
-  //recipeTrendContainer.remove();
-  // var child = recipeTrendContainer.lastElementChild;
-  // console.log(child);
-  // while (child) {
-  //   recipeTrendContainer.removeChild(child);
-  //   child = recipeTrendContainer.lastElementChild;
-  // }
+  //console.log("CONTAINER 2", recipeTrendContainer);
+  recipeTrendContainer.remove();
+  console.log("Holi");
+  var child = recipeTrendContainer.lastElementChild;
+  console.log(child);
+  while (child) {
+    recipeTrendContainer.removeChild(child);
+    child = recipeTrendContainer.lastElementChild;
+  }
   var trendingTitle = document.querySelector(".trending");
   trendingTitle.innerHTML = "Displaying recipes with : " + ingredients;
   console.log("RECIPE TITLE", data[0].title);
