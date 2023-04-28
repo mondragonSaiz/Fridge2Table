@@ -6,7 +6,7 @@ var submitBoton = document.querySelector("#submit-btn");
 var formEL = document.querySelector("form");
 var secu = 25;
 var mainRcontiner = document.querySelector("#main-recipe-container");
-const apiKEY = "930f918afd26488d8f51336d71c5b45d";
+const apiKEY = "1a0fb33a6fc54f18b3bcb4f7cf0eff6c";
 
 var submitInfo = function (event) {
   event.preventDefault();
@@ -92,7 +92,7 @@ var renderOnLoad = function (randomData) {
       "border-light-subtle",
       "mb-3"
     );
-    assignRecipeTitleID(recipeID);
+    //assignRecipeTitleID(recipeID);
     var randomRecipeImgageSrc = randomData.recipes[i].image;
     //console.log("RECIPE TITLE", recipeName);
     var ingredients = randomData.recipes[i].extendedIngredients;
@@ -119,6 +119,15 @@ var renderOnLoad = function (randomData) {
     recipeTitle.textContent = recipeName;
 
     var recipeDetails = document.createElement("a");
+    recipeDetails.setAttribute("data-set", recipeID);
+    recipeDetails.addEventListener("click", function (event) {
+      var parentEL = event.target.parentElement;
+      console.log("DATA SET", parentEL);
+      var parentDataSet = parentEL.getAttribute("data-set");
+      console.log("IDD", parentDataSet);
+      localStorage.setItem("recipeId", parentDataSet);
+      localStorage.setItem("recipeName", recipeName);
+    });
     recipeDetails.classList.add("card-text", "c-link");
     recipeDetails.style.textDecoration = "none";
     recipeDetails.style.color = "white";
@@ -174,8 +183,13 @@ var renderRecipes = function (data, ingredients) {
   var trendingTitle = document.querySelector(".trending");
   trendingTitle.innerHTML = "Displaying recipes with : " + ingredients;
   console.log("RECIPE TITLE", data[0].title);
+  var recipeIdArray = [];
   for (var i = 0; i < data.length; i++) {
     var recipeName = data[i].title;
+    var recipeId = data[i].id;
+    // recipeIdArray += recipeId;
+    // console.log("RECIPE ID", recipeId);
+    console.log("RECIPE ID Array", recipeIdArray);
     var recipeImgaeSrc = data[i].image;
     //console.log("RECIPE TITLE", recipeName);
     var missedING = data[i].missedIngredients;
@@ -213,7 +227,17 @@ var renderRecipes = function (data, ingredients) {
     recipeTitle.textContent = recipeName;
 
     var recipeDetails = document.createElement("a");
-    recipeDetails.classList.add("card-text");
+    recipeDetails.setAttribute("data-set", recipeId);
+    recipeDetails.addEventListener("click", function (event) {
+      var parentEL = event.target.parentElement;
+      console.log("DATA SET", parentEL);
+      var parentDataSet = parentEL.getAttribute("data-set");
+      console.log("IDD", parentDataSet);
+      localStorage.setItem("recipeId", parentDataSet);
+    });
+    recipeDetails.setAttribute("target", "_blank");
+    recipeDetails.setAttribute("href", "instructions.html");
+    recipeDetails.classList.add("card-text", "details-link");
     recipeDetails.style.textDecoration = "none";
     recipeDetails.style.color = "white";
 
@@ -244,7 +268,14 @@ var renderRecipes = function (data, ingredients) {
     rowDiv.append(bodyContainer);
     recipeContainer.append(rowDiv);
     mainRcontiner.append(recipeContainer);
+    //var recipeLink = document.querySelector(".details-link");
+    //recipeLink.addEventListener("click", setRecipe);
   }
+
+  // var setRecipe = function (event) {
+  //   console.log("HAHHS");
+  //   console.log("TARGET", event.target);
+  // };
 };
 
 formEL.addEventListener("submit", submitInfo);
