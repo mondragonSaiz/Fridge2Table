@@ -73,3 +73,11 @@ select {
 small {
   cursor: pointer;
 }
+
+.trending {
+  font-family: "Bebas Neue", cursive;
+}
+
+.hidden {
+  visibility: hidden;
+}
