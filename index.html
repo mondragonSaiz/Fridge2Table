@@ -64,9 +64,32 @@
               </div>
             </div>
 
+            <!--Number of recipes selection (1-10)-->
+            <label for="numberHelp" class="form-label">N° of recipes</label>
+            <select
+              id="number-recipes"
+              class="form-select"
+              aria-label="Default select example"
+            >
+              <option>----</option>
+              <option value="1">1</option>
+              <option value="2">2</option>
+              <option value="3">3</option>
+              <option value="4">4</option>
+              <option value="5">5</option>
+              <option value="6">6</option>
+              <option value="7">7</option>
+              <option value="8">8</option>
+              <option value="9">9</option>
+              <option value="10">10</option>
+            </select>
+            <div id="numberHelp" class="form-text">
+              How many recipes do you want?
+            </div>
+
             <!--Cuisine selection-->
 
-            <label for="cuisinesHelp" class="form-label">Cuisine</label>
+            <!-- <label for="cuisinesHelp" class="form-label">Cuisine</label>
             <select class="form-select" aria-label="Default select example">
               <option selected>----</option>
               <option value="African">African</option>
@@ -98,11 +121,11 @@
             </select>
             <div id="cuisinesHelp" class="form-text">
               What type of cuisine you are looking for.
-            </div>
+            </div> -->
 
             <!--Meal type selection-->
 
-            <label for="mealHelp" class="form-label">Meal Type</label>
+            <!-- <label for="mealHelp" class="form-label">Meal Type</label>
             <select class="form-select" aria-label="Default select example">
               <option selected>----</option>
               <option value="main course">main course</option>
@@ -122,27 +145,8 @@
             </select>
             <div id="mealHelp" class="form-text">
               Select the type of meal for your recipe.
-            </div>
+            </div> -->
 
-            <!--Number of recipes selection (1-10)-->
-
-            <label for="numberHelp" class="form-label">N° of recipes</label>
-            <select class="form-select" aria-label="Default select example">
-              <option selected>----</option>
-              <option value="1">1</option>
-              <option value="2">2</option>
-              <option value="3">3</option>
-              <option value="4">4</option>
-              <option value="5">5</option>
-              <option value="6">6</option>
-              <option value="7">7</option>
-              <option value="8">8</option>
-              <option value="9">9</option>
-              <option value="10">10</option>
-            </select>
-            <div id="numberHelp" class="form-text">
-              How many recipes do you want?
-            </div>
             <button id="submit-btn" class="btn btn-dark">Search</button>
           </form>
         </div>
