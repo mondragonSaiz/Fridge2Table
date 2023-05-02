@@ -1,15 +1,19 @@
 var ingredientsInput = document.querySelector("#inputIngredients");
 var numberInput = document.getElementById("number-recipes");
 var errorNotification = document.querySelector(".notification");
+var formEL = document.querySelector("form");
+var ingredientsLabelHelp = document.querySelector("#ingredeientsHelp");
+//var formIngredientsLable = document.querySelector(".form-ing");
 //var cusineInput = document.querySelector("#cuisineSelect");
 //var mealInput = document.querySelector("#mealTypeSelect");
 //var receiptsInput = document.querySelector("#numberReceiptsSelect");
 //var submitBoton = document.querySelector("#submit-btn");
-var formEL = document.querySelector("form");
+
 var secu = 25;
 var mainRcontiner = document.querySelector("#main-recipe-container");
 const apiKEY = "f08512879ef245b9b4b26071967fe10c";
-var formIngredientsLable = document.querySelector(".form-ing");
+const unplashKEY = "SnWkM7KRwky1k7cOxKhqwpOlrLFM-AXHuJjz4gQbSa4";
+
 // numberInput.addEventListener("change", function () {
 //   console.log("You selected: ", this.value);
 //   if (this.value === "3") {
@@ -22,12 +26,10 @@ var formIngredientsLable = document.querySelector(".form-ing");
 //   console.log("*", event.target.value);
 // });
 
-changeEvent;
-var changeEvent = function (event) {
-  console.log("***CAMBIO***");
-  console.log("***", event.target.value);
-};
-var ingredientsLabelHelp = document.querySelector("#ingredeientsHelp");
+// var changeEvent = function (event) {
+//   console.log("***CAMBIO***");
+//   console.log("***", event.target.value);
+// };
 
 var submitInfo = function (event) {
   event.preventDefault();
@@ -311,3 +313,15 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   );
 });
+
+// var requestImage = function () {
+//   let randomURL =
+//     "https://source.unsplash.com/random/1920x1080/?wallpaper,landscape";
+//   fetch(
+//     "https://source.unsplash.com/random/1920x1080/?wallpaper,landscape"
+//   ).then((data) => {
+//     console.log(data.url);
+//   });
+// };
+
+// requestImage();

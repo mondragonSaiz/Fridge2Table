@@ -9,6 +9,11 @@ body {
 header {
   background-color: #343334;
 }
+footer {
+  background-color: #343334;
+  height: 200px;
+  width: 100%;
+}
 
 .hero {
   display: flex;
