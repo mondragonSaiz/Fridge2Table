@@ -3,30 +3,25 @@
 }
 body {
   margin: 0;
+  padding: 0;
   background-color: #e6ddc9;
 }
 header {
   background-color: #343334;
-  margin: 0;
+  display: inline;
 }
-nav {
-  display: flex;
-  align-items: center;
-  padding: 15px;
-  font-size: 1.8rem;
-  font-family: "Special Elite", cursive;
-  width: 100%;
+
+.hero {
+  padding: 2% 3%;
+}
+
+.hero img {
+  max-width: 75%;
 }
 
 .img-logo {
   width: 350px;
   height: 100px;
-}
-
-.extra-logo {
-  width: 80px;
-  height: 60px;
-  filter: blur(2px);
 }
 
 .page-wrapper {
@@ -51,11 +46,11 @@ nav {
 }
 
 .user-form {
+  padding: 15px;
   margin-left: 0;
   box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px,
     rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
   max-height: 400px;
-  margin-bottom: 15px;
 }
 .form-control {
   outline: none;
@@ -71,6 +66,9 @@ select {
 small {
   cursor: pointer;
 }
+small:hover {
+  text-decoration: underline;
+}
 
 .trending {
   font-family: "Bebas Neue", cursive;
@@ -78,4 +76,49 @@ small {
 
 .hidden {
   visibility: hidden;
+}
+
+.btn {
+  margin-bottom: 5px;
+}
+
+.notification {
+  position: absolute;
+  visibility: hidden;
+}
+.notification-hidden {
+  visibility: hidden;
+}
+
+.notification-visible {
+  position: absolute;
+  visibility: visible;
+}
+.ddanger {
+  color: red;
+}
+/* @media screen and (max-width: 768px) {
+  .user-form {
+    padding: 1px;
+  }
+} */
+
+@media screen and (max-width: 438px) {
+  .extra-logo {
+    visibility: hidden;
+    width: 0px;
+    height: 0px;
+  }
+  .img-logo {
+    text-align: center;
+  }
+}
+
+@media screen and (max-width: 1233px) {
+  .user-form {
+    max-height: 500px;
+  }
+  .trending {
+    margin-top: 10px;
+  }
 }

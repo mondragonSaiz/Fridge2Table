@@ -3,19 +3,22 @@
 }
 body {
   margin: 0;
+  padding: 0;
   background-color: #e6ddc9;
 }
 header {
   background-color: #343334;
-  margin: 0;
 }
-nav {
+
+.hero {
   display: flex;
-  align-items: center;
-  padding: 15px;
-  font-size: 1.8rem;
-  font-family: "Special Elite", cursive;
-  width: 100%;
+  flex-direction: row;
+  padding: 3% 4%;
+  margin-right: 0;
+}
+
+.hero img {
+  max-width: 75%;
 }
 
 .img-logo {
@@ -23,15 +26,9 @@ nav {
   height: 100px;
 }
 
-.extra-logo {
-  width: 80px;
-  height: 60px;
-  filter: blur(2px);
-}
-
 .page-wrapper {
-  margin-top: 6%;
-  margin-bottom: 10%;
+  margin-top: 5%;
+  margin-bottom: auto;
 
   margin-left: auto;
   margin-right: auto;
@@ -42,4 +39,21 @@ nav {
 
 .card-title {
   padding-top: 10px;
+}
+
+@media screen and (max-width: 768px) {
+  main {
+    padding: 5%;
+  }
+}
+
+@media screen and (max-width: 43) {
+  .extra-logo {
+    visibility: hidden;
+    width: 0px;
+    height: 0px;
+  }
+  .img-logo {
+    text-align: center;
+  }
 }
