@@ -2,7 +2,7 @@
 // console.log("INSTRUCTIONS PAGE");
 // console.log(secu);
 var recipeId = localStorage.getItem("recipeId");
-var apiKEY = "1a0fb33a6fc54f18b3bcb4f7cf0eff6c";
+var apiKEY = "f08512879ef245b9b4b26071967fe10c";
 var mainContainer = document.querySelector(".page-wrapper");
 
 var requestRecipeImg = function () {
@@ -59,7 +59,7 @@ var renderInstructions = function (data, titulo, recipeIMG) {
   var cardInstructionsText = document.createElement("p");
   cardInstructionsText.classList.add("card-title");
   //console.log("titulo", recipeTitle);
-  cardInstructionsText.textContent = titulo + " Instructions";
+  cardInstructionsText.textContent = titulo + " - Instructions : ";
 
   var cardDescriptionText = document.createElement("p");
   cardDescriptionText.classList.add("card-text", "card-desc");

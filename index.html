@@ -13,6 +13,10 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css"
+    />
+    <link
       href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap"
       rel="stylesheet"
     />
@@ -30,15 +34,12 @@
     <title>Fridge2Table - Recipes for all tastes</title>
   </head>
   <body flex-column min-100-vh>
-    <header>
-      <nav>
-        <img
-          class="img-logo"
-          src="assets/images/Fridge2Table.png"
-          alt="main logo"
-        />
-        <img class="extra-logo" src="assets/images/hamburger.png" alt="" />
-      </nav>
+    <header class="hero">
+      <img
+        class="img-logo"
+        src="assets/images/Fridge2Table.png"
+        alt="main logo"
+      />
     </header>
     <main>
       <div class="row justify-content-between page-wrapper">
@@ -49,7 +50,12 @@
             <div class="mb-3">
               <!--Ingredients input-->
 
-              <label for="InputIngredients" class="form-label"
+              <div class="notification is-danger">
+                <button class="delete"></button>
+                Plesase enter a valid input
+              </div>
+
+              <label for="InputIngredients" class="form-label form-ing"
                 >Ingredients</label
               >
               <input
@@ -221,7 +227,7 @@
       integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe"
       crossorigin="anonymous"
     ></script>
-    <script src="assets/js/script.js" type="module"></script>
+    <script src="assets/js/script.js"></script>
   </body>
 </html>
 
