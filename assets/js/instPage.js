@@ -59,7 +59,7 @@ var renderInstructions = function (data, titulo, recipeIMG) {
   var cardInstructionsText = document.createElement("p");
   cardInstructionsText.classList.add("card-title");
   //console.log("titulo", recipeTitle);
-  cardInstructionsText.textContent = titulo + " - Instructions : ";
+  cardInstructionsText.textContent = titulo + " Instructions : ";
 
   var cardDescriptionText = document.createElement("p");
   cardDescriptionText.classList.add("card-text", "card-desc");

@@ -11,6 +11,12 @@ header {
   display: inline;
 }
 
+footer {
+  background-color: #343334;
+  height: 200px;
+  width: 100%;
+}
+
 .hero {
   padding: 2% 3%;
 }
