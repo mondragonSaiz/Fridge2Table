@@ -1,4 +1,3 @@
-var ingredientsInput = document.querySelector("#inputIngredients");
 var cusineInput = document.querySelector("#cuisineSelect");
 var mealInput = document.querySelector("#mealTypeSelect");
 var receiptsInput = document.querySelector("#numberReceiptsSelect");
@@ -10,17 +9,22 @@ const apiKEY = "1a0fb33a6fc54f18b3bcb4f7cf0eff6c";
 
 var submitInfo = function (event) {
   event.preventDefault();
-  var recipeCONT = document.querySelector("recipe-home");
+  //var recipeCONT = document.querySelector("recipe-home");
   //recipeCONT.remove();
-  console.log("HOLAA");
+  console.log("Inside submit");
+  var ingredientsInput = document.querySelector("#inputIngredients");
   var ingredients = ingredientsInput.value.trim();
   if (ingredients === "") {
     console.log("Invalid input");
     return;
   }
-
+  var numberofrecipes = document.getElementById("number-recipes").value;
+  if (numberofrecipes === "----" || numberofrecipes === null) {
+    numberofrecipes = 10;
+  }
+  console.log("numero", numberofrecipes);
   //console.log(ingredients);
-  requestRecipe(ingredients);
+  requestRecipe(ingredients, numberofrecipes);
 };
 
 // function dividirIngredientes(ingredients) {
@@ -40,7 +44,7 @@ var submitInfo = function (event) {
 //   requestRecipe(ingredientsArray);
 // }
 
-var requestRecipe = function (ingredientsArray) {
+var requestRecipe = function (ingredientsArray, number) {
   // var actualING = "";
   // //console.log("INGREDIENTSSS", ingredientsArray);
   // for (var i = 0; i < ingredientsArray.length; i++) {
@@ -57,7 +61,9 @@ var requestRecipe = function (ingredientsArray) {
     "https://api.spoonacular.com/recipes/findByIngredients?apiKey=" +
     apiKEY +
     "&ingredients=" +
-    ingredientsArray;
+    ingredientsArray +
+    "&number=" +
+    number;
 
   fetch(requestURL)
     .then((Response) => Response.json())
@@ -172,6 +178,9 @@ var renderRecipes = function (data, ingredients) {
   //console.log("DDDTA", data);
   var recipeTrendContainer = document.querySelector(".randomRecipe");
   //console.log("CONTAINER 2", recipeTrendContainer);
+  if (recipeTrendContainer === null) {
+    return;
+  }
   recipeTrendContainer.remove();
   console.log("Holi");
   var child = recipeTrendContainer.lastElementChild;
