@@ -2,7 +2,7 @@
 // console.log("INSTRUCTIONS PAGE");
 // console.log(secu);
 var recipeId = localStorage.getItem("recipeId");
-var apiKEY = "f08512879ef245b9b4b26071967fe10c";
+var apiKEY = "dda6aa93032448f584c1421d3ebf826c";
 var mainContainer = document.querySelector(".page-wrapper");
 
 var requestRecipeImg = function () {
