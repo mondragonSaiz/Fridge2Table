@@ -11,7 +11,7 @@ var ingredientsLabelHelp = document.querySelector("#ingredeientsHelp");
 
 var secu = 25;
 var mainRcontiner = document.querySelector("#main-recipe-container");
-const apiKEY = "f08512879ef245b9b4b26071967fe10c";
+const apiKEY = "dda6aa93032448f584c1421d3ebf826c";
 const unplashKEY = "SnWkM7KRwky1k7cOxKhqwpOlrLFM-AXHuJjz4gQbSa4";
 
 // numberInput.addEventListener("change", function () {
